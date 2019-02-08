@@ -1,0 +1,5 @@
+# Hugo build folder
+public/
+
+# npm
+node_modules/

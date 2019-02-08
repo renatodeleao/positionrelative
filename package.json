@@ -1,0 +1,11 @@
+{
+  "name": "positionrelative.com",
+  "author": "Renato de Leão <renatodeleao@gmail.com>",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "hugo server -D",
+    "preflight": "rm -rf public/** hugo -D",
+    "build": "rm -rf public/** && hugo"
+  }
+}
