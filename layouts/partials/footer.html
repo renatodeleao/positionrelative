@@ -1,4 +1,10 @@
 {{ $now := now.Format "2006"}}
+{{ $pkg := getJSON "package.json" }}
+
 <footer>
-  <small><strong>position:relative™</strong> is created, written and maintained by Renato de Leão with help from all around the world. &copy; {{.Site.Home.Date.Format "2006"}}{{if ne $now "2019"}} — {{$now}}{{end}}</small>
+  <small><strong>position:relative™</strong> is created, written and maintained by Renato de Leão with help from all around the world. &copy; {{.Site.Home.Date.Format "2006"}}{{if ne $now "2019"}} — {{$now}}{{end}}</small>
+  <div>
+    v{{ $pkg.version }}
+    </a>
+  </div>
 </footer>

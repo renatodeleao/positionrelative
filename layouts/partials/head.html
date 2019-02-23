@@ -1,12 +1,8 @@
-{{ $scss := resources.Get "stylesheets/index.scss" }}
-{{ $styles := $scss | resources.ToCSS }}
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>{{ .Site.Title }}</title>
 <meta name="description" content="{{ .Description | default .Site.Params.description}} | {{ .Site.Title}}">
-
 
 <!-- Dynamic internals https://gohugo.io/templates/internal#readout -->
 {{ template "_internal/twitter_cards.html" . }}
@@ -14,4 +10,9 @@
 {{ template "_internal/google_analytics_async.html" . }}
 
 <!-- styles -->
+{{ $styles := resources.Get "stylesheets/index.scss" | toCSS | postCSS }}
+{{/* Minify and hash if production */}}
+{{ if eq (getenv "HUGO_ENV") "production" }}
+  {{ $styles := $styles | minify | fingerprint "md5" }}
+{{ end }}
 <link rel="stylesheet" href="{{ $styles.Permalink | relURL }}">

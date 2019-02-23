@@ -1,0 +1,8 @@
+{{ $jsMap := resources.Get "js/index.map" }}
+{{ $js := resources.Get "js/index.js" }}
+
+{{/* hack to force hugo to copy sourcemaps to publishDir 🙂*/}}
+<noscript style="display: none">
+  {{ $jsMap.Permalink | relURL }}
+</noscript>
+<script src='{{ $js.Permalink | relURL }}'></script>
