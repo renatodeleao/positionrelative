@@ -1,0 +1,80 @@
+////
+/// Document level styles: font and root level elements
+///
+/// @group Global
+/// @author Renato de Leão
+////
+
+// from @whitesmith/qnorr-styles
+@include font-face('/fonts/inter/Inter-Regular', Inter, 400);
+@include font-face('/fonts/inter/Inter-SemiBold', Inter, 600);
+@include font-face('/fonts/inter/Inter-ExtraBold', Inter, 800);
+
+body {
+  font-family: $posr-primary-font;
+  background: #131313;
+  color: white;
+}
+
+// tmp: remove me
+#root {
+  @include qnorr-wrap();
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    @include fluid-type(24px, 40px, 'xxs', 'lg');
+    // doens't allow unitless values [ask for update]
+    @include fluid-type(36px, 48px, 'xxs', 'lg', 'line-height');
+    font-weight: 600;
+    letter-spacing: -0.025em;
+
+    @include mappy-bp(lg){
+      @include fluid-type(40px, 48px, 'lg', 'xl');
+      @include fluid-type(48px, 58px, 'lg', 'xl', 'line-height');
+    }
+
+  }
+
+  [role="banner"] h1 {
+    font-weight: 800;
+    padding: 32px 0;
+  }
+
+  section {
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+
+    small {
+      &:last-child { margin-top: $qnorr-pixel-grid-unit*2 }
+    }
+
+    @include mappy-bp(sm) {
+      flex-direction: row;
+      justify-content: space-between;
+
+      small {
+        &:last-child {
+          margin-top: 0;
+          margin-left: $qnorr-pixel-grid-unit*2
+        }
+      }
+    }
+    padding: 16px 0;
+    opacity: 0.6;
+  }
+
+  main {
+    justify-content: center;
+  }
+}
+
+
+strong { font-weight: 800 };
