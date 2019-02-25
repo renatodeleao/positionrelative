@@ -1,5 +1,10 @@
 # Hugo build folder
 public/
+resources/
+# Generated files used by hugo resources.Get
+assets/js/
 
 # npm
 node_modules/
+yarn-error.log
+.cache/
