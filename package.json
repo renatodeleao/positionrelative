@@ -17,7 +17,7 @@
     "build:parcel": "parcel build js/index.js -d assets/js",
     "build:hugo": "HUGO_ENV='production' hugo",
     "build": "rm -rf public/** && run-s build:parcel build:hugo",
-    "preflight:serve": "HUGO_ENV='production' hugo server",
+    "preflight:serve": "HUGO_ENV='production' hugo server --environment production",
     "preflight": "run-s build preflight:serve"
   },
   "devDependencies": {
