@@ -5,6 +5,12 @@
 /// @author Renato de Leão
 ////
 
+// from @whitesmith/qnorr-styles
+@include font-face('/fonts/inter/Inter-Regular', 'Inter', 400);
+@include font-face('/fonts/inter/Inter-Semibold', 'Inter', 600);
+@include font-face('/fonts/inter/Inter-Bold', 'Inter', 700);
+
+body {
   font-family: Inter, sans-serif;
   background: #131313;
   color: white;

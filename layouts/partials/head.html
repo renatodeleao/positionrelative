@@ -9,6 +9,12 @@
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/google_analytics_async.html" . }}
 
+<!-- fonts -->
+{{ $fonts := slice "Regular" "SemiBold" "Bold" }}
+{{ range $weight := $fonts }}
+<link rel="preload" as="font" href="/fonts/inter/Inter-{{ $weight }}.woff2" type="font/woff2" crossorigin="anonymous">
+{{ end }}
+
 <!-- styles -->
 {{ $cssOptions := (dict "enableSourceMap" true "includePaths" (slice "node_modules")) }}
 {{ $styles := resources.Get "styles/index.scss" | toCSS $cssOptions }}
