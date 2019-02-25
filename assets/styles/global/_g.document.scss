@@ -6,12 +6,12 @@
 ////
 
 // from @whitesmith/qnorr-styles
-@include font-face('/fonts/inter/Inter-Regular', 'Inter', 400);
-@include font-face('/fonts/inter/Inter-Semibold', 'Inter', 600);
-@include font-face('/fonts/inter/Inter-Bold', 'Inter', 700);
+@include font-face('/fonts/inter/Inter-Regular', Inter, 400);
+@include font-face('/fonts/inter/Inter-SemiBold', Inter, 600);
+@include font-face('/fonts/inter/Inter-ExtraBold', Inter, 800);
 
 body {
-  font-family: Inter, sans-serif;
+  font-family: $posr-primary-font;
   background: #131313;
   color: white;
 }
@@ -24,14 +24,21 @@ body {
   flex-direction: column;
 
   h1 {
-    @include fluid-type(24px, 56px, 'xxs', 'xl');
+    @include fluid-type(24px, 40px, 'xxs', 'lg');
     // doens't allow unitless values [ask for update]
-    @include fluid-type(36px, 62px, 'xxs', 'lg', 'line-height');
+    @include fluid-type(36px, 48px, 'xxs', 'lg', 'line-height');
     font-weight: 600;
+    letter-spacing: -0.025em;
+
+    @include mappy-bp(lg){
+      @include fluid-type(40px, 48px, 'lg', 'xl');
+      @include fluid-type(48px, 58px, 'lg', 'xl', 'line-height');
+    }
+
   }
 
   [role="banner"] h1 {
-    font-weight: 700;
+    font-weight: 800;
     padding: 32px 0;
   }
 

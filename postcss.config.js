@@ -13,7 +13,6 @@ module.exports = (context => {
     require('postcss-banner')({banner: banner, important: true}),
     require('@fullhuman/postcss-purgecss')({
       content: ['layouts/**/*.html'],
-      fontFace: true,
     })
   ];
 
