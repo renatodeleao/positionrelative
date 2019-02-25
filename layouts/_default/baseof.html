@@ -5,11 +5,18 @@
 </head>
 <body>
   <div id="root">
-    {{- partial "masthead.html" . -}}
-    <main id="main" role="main">
-      {{- block "main" . }}{{- end }}
-    </main>
-    {{- partial "footer.html" . -}}
+    <div class="o-skeleton">
+      <div class="o-skeleton__head">
+      {{- partial "masthead.html" . -}}
+      </div>
+      <main class="o-skeleton__body" id="main" role="main">
+        {{- block "main" . }}{{- end }}
+      </main>
+
+      <div class="o-skeleton__feet">
+      {{- partial "footer.html" . -}}
+      </div>
+    </div>
   </div>
 
   <!-- Javascript -->
