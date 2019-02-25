@@ -1,0 +1,14 @@
+{{ $jsMap := resources.Get "js/index.map" }}
+{{ $js := resources.Get "js/index.js" }}
+
+{{/* hack to force hugo to copy sourcemaps to publishDir 🙂*/}}
+<noscript style="display: none">
+  {{ $jsMap.Permalink | relURL  }}
+</noscript>
+
+{{ if eq (getenv "HUGO_ENV") "production" }}
+  {{ $js = $js | fingerprint "sha256" }}
+  <script src='{{ $js.Permalink | relURL }}' integrity="{{ $js.Data.Integrity }}"></script>
+{{ else }}
+  <script src='{{ $js.Permalink | relURL }}'></script>
+{{ end }}

@@ -11,5 +11,10 @@
     </main>
     {{- partial "footer.html" . -}}
   </div>
+
+  <!-- Javascript -->
+  {{- block "scripts" . }}
+    {{- partial "js.html" . -}}
+  {{- end }}
 </body>
 </html>
