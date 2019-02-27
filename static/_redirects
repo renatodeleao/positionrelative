@@ -1,2 +1,9 @@
-# Redirect default Netlify subdomain to primary domain
-http://positionrelativedotx.netlify.com/* http://positionrelative.me/:splat 301!
+# Redirect domain aliases to primary domain
+https://positionrelative.me/* https://www.positionrelative.co/:splat 301!
+https://www.positionrelative.me/* https://www.positionrelative.co/:splat 301!
+
+# other domains aliases
+https://renatodeleao.me/* https://www.positionrelative.co/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://positionrelativedotx.netlify.com/* https://www.positionrelative.co/:splat 301!
