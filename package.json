@@ -12,12 +12,12 @@
   },
   "homepage": "https://github.com/renatodeleao/positionrelative",
   "scripts": {
-    "start:hugo": "hugo server --buildDrafts --buildFuture --gc",
+    "start:hugo": "hugo server --buildDrafts --buildFuture --gc --bind=0.0.0.0 --baseURL=http://0.0.0.0:1313",
     "start:parcel": "rm -rf assets/js && parcel watch js/index.js -d assets/js",
     "build:parcel": "parcel build js/index.js -d assets/js",
     "build:hugo": "HUGO_ENV='production' hugo --gc --minify",
     "build": "rm -rf public/** && run-s build:parcel build:hugo",
-    "preflight:serve": "HUGO_ENV='production' hugo server --environment production",
+    "preflight:serve": "HUGO_ENV='production' hugo server --environment=production --bind=0.0.0.0 --baseURL=http://0.0.0.0:1313",
     "preflight": "run-s build preflight:serve"
   },
   "devDependencies": {
