@@ -10,6 +10,10 @@
 @include font-face('/fonts/inter/Inter-SemiBold', Inter, 600);
 @include font-face('/fonts/inter/Inter-ExtraBold', Inter, 800);
 
+:root {
+  --vh: 1vh;
+}
+
 body {
   font-family: $posr-primary-font;
   background: #131313;
