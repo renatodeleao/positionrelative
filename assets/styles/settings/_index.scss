@@ -6,6 +6,23 @@
 
 $posr-primary-font: Inter, Helvetica Neue, sans-serif;
 
+$posr-masthead-setup-map: (
+  null: (
+    size: 40px,
+    position: right,
+  ),
+  xxs: (
+    size: 48px
+  ),
+  sm: (
+    size: 56px
+  ),
+  mdl: (
+    size: 64px,
+    position: left
+  )
+);
+
 ///
 /// @whitesmith/qnorr-styles overrides
 $qnorr-font-family: $posr-primary-font;

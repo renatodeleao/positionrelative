@@ -3,5 +3,49 @@ languageCode = "en-us"
 title = "position:relative"
 enableGitInfo = true
 
+[menu]
+  [[menu.masthead]]
+    identifier = "about"
+    name = "About"
+    title = "About page"
+    url = "/about/"
+    weight = -1
+
+	[[menu.masthead]]
+    identifier = "blog"
+    name = "Blog"
+    title = "Articles and opinions"
+    url = "/blog/"
+		wip = true
+    weight = -1
+
+	[[menu.masthead]]
+    identifier = "lab"
+    name = "Lab"
+    title = "Latest code experiements"
+    url = "https://github.com/renatodeleao"
+
+    #weight = -110
+
+
+
+	## Secondary links
+	[[menu.mastheadsecondary]]
+    identifier = "github"
+    name = "GH"
+    title = "Github page"
+    url = "https://github.com/renatodeleao"
+    #weight = -110
+
+	[[menu.mastheadsecondary]]
+    identifier = "twitter"
+    name = "Tw"
+    title = "Twitter page"
+    url = "https://twitter.com/ohsitabem"
+    #weight = -110
+
+
+
+
 [params]
   description = "The digital home of Renato de Leão, digital designer and front-end developer"

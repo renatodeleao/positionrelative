@@ -8,4 +8,6 @@ import hasTouchEvents from "./utils/touchevents.js";
   }
 })();
 
+// COMPONENTS
+import "./components/masthead.js";
 

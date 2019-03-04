@@ -1,0 +1,138 @@
+/// [1] got to bottom right a set as origin
+/// push the bar up equals to its height
+/// rotate to fit
+///
+/// @requires $posr-masthead-size-map;
+///
+.c-masthead {
+  display: flex;
+  background-color: white;
+  color: black;
+  z-index: 1000;
+  font-size: 12px;
+
+  position: fixed;
+  top:0;
+  right: 0;
+  // [1]
+  transform-origin: bottom right;
+  width: 100vh; // [2]
+
+  html.touchevents & {
+    transition: width 0.15s ease-out;
+    width: calc(var(--vh, 1vh) * 100);
+  }
+
+  @each $bp, $config in $posr-masthead-setup-map {
+    $pos: map-get($config, position);
+    $size: map-get($config, size);
+    $posVal: if($pos, $size, null);
+
+    @if not $bp {
+      height: $size;
+      transform: translateY(-$size) rotate(-90deg); // [1]
+    } @else {
+      @include mappy-bp($bp) {
+        transform: translateY(-$size) rotate(-90deg);
+        height: $size;
+
+        @if $pos == "right" {
+          left: auto;
+        } @else if $pos == "left" {
+          right: auto;
+          left: 0;
+          transform-origin: bottom left;
+          transform: translateY(-$size) rotate(90deg); // [1]
+        }
+      }
+    }
+  }
+
+  // TODO, INVERT TEXT ROTATION?
+  // COMMENT TO REMOVE
+  @include mappy-bp(mdl){
+    .c-masthead__blk {
+      transform: rotate(-180deg);
+    }
+
+    .c-masthead__menu--primary {
+      justify-content: flex-start;
+      flex-direction: row-reverse;
+    }
+
+    .c-masthead__menu--secondary { justify-content: flex-start }
+  }
+}
+
+  .c-masthead__blk {
+    &:nth-child(2) {
+      order: -1;
+    }
+  }
+
+  .c-masthead__logo{
+    order: 0;
+    display: flex;
+    align-items: center;
+    margin: 0 24px;
+    font-size: 20px;
+  }
+
+  .c-masthead__menu,
+  .c-masthead__nav {
+    min-width: 0px;
+    flex: 1 0 0.000000001px;
+    display: flex;
+    list-style: none;
+  }
+
+    .c-masthead__menu {
+      align-items: center;
+    }
+
+    .c-masthead__menu-item {
+      padding: 0 12px;
+    }
+
+
+  .c-masthead__menu--primary{
+
+  }
+
+    .c-masthead__menu-burger { display: none }
+
+  .c-masthead__menu--secondary {
+    justify-content: flex-end;
+  }
+
+
+
+//-///////////////////////////////////////////////////////////////////
+// HEIGHT VIEWPORT QUERIES
+//-///////////////////////////////////////////////////////////////////
+
+// Display burger menu if super small
+@include mappy-bp(h max xxs){
+  .c-masthead__menu--primary{
+
+    .c-masthead__menu-item:not(.c-masthead__menu-burger){
+      display: none;
+    }
+  }
+
+  .c-masthead__menu-burger {
+    display: block;
+  }
+}
+
+
+// Hide secondary nav and show burger
+@include mappy-bp(h max xs){
+  .c-masthead__menu--secondary {
+    display: none;
+  }
+}
+
+
+
+
