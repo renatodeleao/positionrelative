@@ -12,6 +12,17 @@
 ///
 ///
 
+// SETTINGS
 @import "settings/index";
+
+// QNORR [replace per modules after dev]
 @import "@whitesmith/qnorr-styles/scss/qnorr.scss";
+
+// GLOBAL HTML SETS AND RESETS
 @import "global/index";
+
+// UI COMPONENTS
+@import "components/c.logo";
+@import "components/c.intro";
+@import "components/c.masthead";
+@import "components/c.footer";

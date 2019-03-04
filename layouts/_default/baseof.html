@@ -4,17 +4,16 @@
   {{- partial "head.html" . -}}
 </head>
 <body>
-  <div id="root">
-    <div class="o-skeleton">
-      <div class="o-skeleton__head">
-      {{- partial "masthead.html" . -}}
-      </div>
-      <main class="o-skeleton__body" id="main" role="main">
-        {{- block "main" . }}{{- end }}
-      </main>
+  <div id="root" class="o-skeleton">
+    {{- partial "masthead.html" . -}}
 
-      <div class="o-skeleton__feet">
-      {{- partial "footer.html" . -}}
+    <main class="o-skeleton__body" id="main" role="main">
+      {{- block "main" . }}{{- end }}
+    </main>
+
+    <div class="o-skeleton__tip">
+      <div class="o-wrapper">
+        {{- partial "footer.html" . -}}
       </div>
     </div>
   </div>
