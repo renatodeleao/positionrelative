@@ -1,0 +1,52 @@
+{{ $curPage := . }}
+<header class="c-masthead" role="banner" data-js-component="masthead">
+  <div class="c-masthead__bar">
+    <a href="{{ .Site.BaseURL }}" rel="home" class="c-masthead__blk c-masthead__logo">
+      <h1>
+      {{ partial "components/logo.html" . }}
+      </h1>
+    </a>
+
+    <nav class="c-masthead__blk c-masthead__nav">
+      <ul class="c-masthead__menu c-masthead__menu--primary">
+        <li class="c-masthead__menu-item c-masthead__burger">
+          <button
+            type="button"
+            class="c-masthead__button"
+            data-js-action="masthead#toggleDrawer"
+            data-js-action-event="click"
+          >
+          {{ partial "site/burger.html" . }}
+          </button>
+        </li>
+        {{ range .Site.Menus.masthead }}
+          <li class="c-masthead__menu-item {{ if $curPage.IsMenuCurrent `main` . }}is-active{{ end }}">
+            {{ if eq .Weight -1 }}
+            <span><s>{{ .Name }}</s></span>
+            {{ else }}
+            <a class="c-masthead__menu-anchor" href="{{ .URL }}">
+              <span>{{ .Name }}</span>
+            </a>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <ul class="c-masthead__blk c-masthead__menu c-masthead__menu--secondary">
+      {{ range .Site.Menus.mastheadsecondary }}
+        <li class="c-masthead__menu-item {{ if $curPage.HasMenuCurrent `main` . }}is-active{{ end }}">
+          <a class="c-masthead__menu-anchor" href="{{ .URL }}">
+            <span>{{ .Name }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  {{/*
+    placed outsidec to avoid complex positioning with current masthead
+    rotates/trasnlates
+  */}}
+  {{ partial "components/masthead/drawer.html" . }}
+</header>
