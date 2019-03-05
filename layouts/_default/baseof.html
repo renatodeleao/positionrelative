@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {{- partial "head.html" . -}}
+  {{- partial "site/head.html" . -}}
 </head>
 <body>
   <div id="root" class="o-skeleton">
-    {{- partial "masthead.html" . -}}
+    {{- partial "components/masthead/masthead.html" . -}}
 
     <main class="o-skeleton__body" id="main" role="main">
       {{- block "main" . }}{{- end }}
@@ -13,14 +13,14 @@
 
     <div class="o-skeleton__tip">
       <div class="o-wrapper">
-        {{- partial "footer.html" . -}}
+        {{- partial "site/footer.html" . -}}
       </div>
     </div>
   </div>
 
   <!-- Javascript -->
   {{- block "scripts" . }}
-    {{- partial "js.html" . -}}
+    {{- partial "site/js.html" . -}}
   {{- end }}
 </body>
 </html>
