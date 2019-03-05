@@ -6,16 +6,32 @@
 
 $posr-primary-font: Inter, Helvetica Neue, sans-serif;
 
+$posr-color-maps: (
+  grayscale: (
+    100: #f1f0f1,
+    700: #101010,
+    900: #050505
+  )
+);
+
+$posr-transitions-map: (
+  eease: cubic-bezier(.445,.05,.55,.95),
+  tense: cubic-bezier(.7,0,.29,1),
+  super-tense: cubic-bezier(.79,.03,.17,.97)
+);
+
 $posr-masthead-setup-map: (
   null: (
     size: 40px,
     position: right,
   ),
   xxs: (
-    size: 48px
+    size: 48px,
+    position: right,
   ),
   sm: (
-    size: 56px
+    size: 56px,
+    position: right,
   ),
   mdl: (
     size: 64px,

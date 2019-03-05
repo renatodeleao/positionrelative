@@ -16,8 +16,13 @@
 
 body {
   font-family: $posr-primary-font;
-  background: #131313;
+  background: get-color(grayscale, 900, $posr-color-maps);
   color: white;
+  overflow-x: hidden;
+
+  &.no-overflow {
+    overflow: hidden;
+  }
 }
 
 // tmp: remove me
@@ -32,15 +37,16 @@ body {
     $rule: "padding";
 
     @if not $bp {
-      #{$rule}-#{$pos}: $posVal;
+      #{$rule}-#{$pos}:  $size;
     } @else {
       @include mappy-bp($bp) {
         @if $pos == "right" {
           #{$rule}-left: 0;
+          #{$rule}-right: $size;
         } @else if $pos == "left" {
           #{$rule}-right: 0;
+          #{$rule}-left: $size;
         }
-        #{$rule}-#{$pos}: $posVal;
       }
     }
   }
