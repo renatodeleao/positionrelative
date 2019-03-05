@@ -1,5 +1,13 @@
-import defaultTestFn, { testVar, testFn } from "./utils/test.js";
+// UTILS
+import hasTouchEvents from "./utils/touchevents.js";
 
-console.log(testVar);
-console.log(testFn());
-console.log(defaultTestFn());
+// move to some folder sometime
+(function touch() {
+  if(hasTouchEvents()) {
+    document.documentElement.classList.add('touchevents')
+  }
+})();
+
+// COMPONENTS
+import "./components/masthead.js";
+

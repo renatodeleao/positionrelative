@@ -1,0 +1,24 @@
+////
+/// LOGO
+/// @group Components
+////
+
+// logo wrapper
+.c-logo {
+  position: relative;
+  display: inline-flex;
+  font-weight: 700;
+  font-size: inherit;
+  letter-spacing: -0.02em;
+}
+
+
+  .c-logo__purgeable {
+    display: none;
+  }
+
+
+
+@include mappy-bp(h s) {
+  .c-logo__purgeable { display: inherit }
+}

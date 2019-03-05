@@ -11,3 +11,6 @@ assets/js/
 node_modules/
 yarn-error.log
 .cache/
+
+# apple files
+.DS_Store

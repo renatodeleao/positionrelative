@@ -1,0 +1,61 @@
+///
+/// maps breakpoint map values to queries one of more css properties
+///
+/// @group Tools
+/// @author Renato de Leão
+/// @requires mappy-breakpoints::mappy-breakpoints
+///
+/// @param {Map} $bp-map - breakpoint map to loop over
+/// @param {List|String} $rules - css properties map values to
+/// @param {Map} $global-bp-map [$qnorr-breakpoints-map] - Map to check
+/// if breakpoints keys are valid
+///
+/// @todo unexpected outputs for non matching rules with with map values.
+///
+/// @example scss - mapping navbar sizes
+///  $navbar-sizes: (null: (100%, 48px), sm: (1000px, 54px));
+///
+///  .c-nav {
+///     @include map-to-rules($navbar-sizes, (width, height);
+///   }
+///
+///   // outputs
+///   .c-nav {
+///      width: 100%;
+///      height: 48px;
+///      @include mapp-bp(sm){
+///         width: 1000px;
+///         height: 54px;
+///      }
+///    }
+///
+@mixin map-to-rules(
+  $bp-map,
+  $rules,
+  $global-bp-map: $qnorr-breakpoints-map
+){
+  @if type-of($bp-map) != "map" {
+    @error "must be a breakpoint map to loop over";
+  }
+
+  @each $bp, $val in $bp-map {
+    $valLen: length($val);
+    $rulesLen: length($rules);
+
+    @if not $bp {
+      @for $i from 1 through $rulesLen {
+        #{nth($rules, $i)}: if($valLen == $rulesLen, nth($val, $i), $val);
+      }
+    } @else {
+      @if map-has-key($global-bp-map, $bp) {
+        @include mappy-bp($bp) {
+          @for $i from 1 through $rulesLen {
+            #{nth($rules, $i)}: if($valLen == $rulesLen, nth($val, $i), $val);
+          }
+        }
+      } @else {
+        @warn "'#{$bp}' is not a valid breakpoint key. Valid keys: #{map-keys($bp-map)}. Nothing will be outputed for it >>>"
+      }
+    }
+  }
+}

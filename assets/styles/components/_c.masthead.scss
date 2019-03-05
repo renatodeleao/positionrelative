@@ -1,0 +1,281 @@
+/// [1] got to bottom right a set as origin
+/// push the bar up equals to its height
+/// rotate to fit
+///
+/// @requires $posr-masthead-size-map;
+///
+
+
+.c-masthead {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  transition: transform 0.35s map-get($map: $posr-transitions-map, $key: super-tense);
+  will-change: transform;
+
+  @each $bp, $config in $posr-masthead-setup-map {
+    $pos: map-get($config, position);
+    $size: map-get($config, size);
+
+    @if not $bp {
+      &.is-open {
+        // find a way to not use calc, because of iE
+        transform:  translateX(calc(-100% + #{$size}));
+      }
+    } @else {
+      @include mappy-bp($bp) {
+        &.is-open {
+          transform: translateX(calc(-100% + #{$size}));
+        }
+
+        @if $pos == "left" {
+          &.is-open {
+            transform: translateX(calc(100% - #{$size}));
+          }
+        }
+      }
+    }
+  }
+}
+
+//-///////////////////////////////////////////////////////////////////
+// NAVBAR
+//-///////////////////////////////////////////////////////////////////
+.c-masthead__bar {
+  display: flex;
+  background-color: white;
+  color: black;
+  z-index: 1000;
+  font-size: 12px;
+
+  position: fixed;
+  top:0;
+  right: 0;
+  // [1]
+  transform-origin: bottom right;
+  width: 100vh; // [2]
+
+  html.touchevents & {
+    transition: width 0.15s ease-out;
+    width: calc(var(--vh, 1vh) * 100);
+  }
+
+  @each $bp, $config in $posr-masthead-setup-map {
+    $pos: map-get($config, position);
+    $size: map-get($config, size);
+    $posVal: if($pos, $size, null);
+
+    @if not $bp {
+      height: $size;
+      transform: translateY(-$size) rotate(-90deg); // [1]
+
+    } @else {
+      @include mappy-bp($bp) {
+        transform: translateY(-$size) rotate(-90deg);
+        height: $size;
+
+        @if $pos == "right" {
+          left: auto;
+        } @else if $pos == "left" {
+          right: auto;
+          left: 0;
+          transform-origin: bottom left;
+          transform: translateY(-$size) rotate(90deg); // [1]
+        }
+      }
+    }
+  }
+}
+
+  .c-masthead__blk {
+    &:nth-child(2) {
+      order: -1;
+    }
+  }
+
+  .c-masthead__logo{
+    order: 0;
+    display: flex;
+    align-items: center;
+    margin: 0 24px;
+    font-size: 20px;
+  }
+
+  .c-masthead__menu,
+  .c-masthead__nav {
+    min-width: 0px;
+    flex: 1 0 0.000000001px;
+    display: flex;
+    list-style: none;
+  }
+
+    .c-masthead__menu {
+      align-items: center;
+    }
+
+    .c-masthead__menu-item {
+      padding: 0 12px;
+    }
+
+    .c-masthead__burger {
+      display: none;
+
+      &:hover {
+        .c-masthead__button{
+          background: whitesmoke;
+        }
+      }
+    }
+
+    .c-masthead__button {
+      transition: all 0.15s;
+      @include reset-appearance;
+      min-width: 28px;
+      min-height: 28px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: rotate(90deg);
+
+    }
+
+  .c-masthead__menu--secondary {
+    justify-content: flex-end;
+  }
+
+//-///////////////////////////////////////////////////////////////////
+// MEDIA QUERIES
+//-///////////////////////////////////////////////////////////////////
+
+// Hide all menus and only show burger if super small
+@include mappy-bp(h max xxs){
+  .c-masthead__menu--primary{
+    .c-masthead__menu-item:not(.c-masthead__burger){
+      display: none;
+    }
+  }
+}
+
+
+// Hide secondary nav and show burger
+@include mappy-bp(h max xs){
+  .c-masthead__burger {
+    display: block;
+  }
+
+  .c-masthead__menu--secondary {
+    display: none;
+  }
+}
+
+
+// TODO, INVERT TEXT ROTATION?
+// COMMENT TO REMOVE
+@include mappy-bp(mdl){
+  .c-masthead__bar {
+    .c-masthead__blk {
+      transform: rotate(-180deg);
+    }
+
+    .c-masthead__menu--primary {
+      justify-content: flex-start;
+      flex-direction: row-reverse;
+    }
+
+    .c-masthead__menu--secondary { justify-content: flex-start }
+  }
+}
+
+@include mappy-bp(mdl){
+  .c-masthead {
+    transition: transform 0.525s map-get($map: $posr-transitions-map, $key: super-tense);
+  }
+}
+
+
+
+
+
+
+//-///////////////////////////////////////////////////////////////////
+// DRAWER
+//-///////////////////////////////////////////////////////////////////
+.c-masthead__drawer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background: get-color(grayscale, 900, $posr-color-maps);
+  color: get-color(grayscale, 100, $posr-color-maps);
+
+  @each $bp, $config in $posr-masthead-setup-map {
+    $pos: map-get($config, position);
+    @if not $bp {
+      left: 100%;
+    } @else {
+      @include mappy-bp($bp) {
+        @if $pos == "left" {
+          left: -100%;
+        }
+      }
+    }
+  }
+}
+
+  .c-masthead__drawer-menu {
+    display: flex;
+    list-style: none;
+  }
+
+  .c-masthead__drawer-item{
+    padding: 0 $qnorr-pixel-grid-unit*2;
+  }
+
+    .c-masthead__drawer-menu--primary {
+      flex: 1 0 auto;
+      flex-direction: column;
+
+      .c-masthead__drawer-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 0 0.0000000001px;
+        min-width: 0px;
+
+        @include fluid-type(24px, 40px, 'xxs', 'lg');
+        // doens't allow unitless values [ask for update]
+        @include fluid-type(36px, 48px, 'xxs', 'lg', 'line-height');
+        font-weight: 600;
+        letter-spacing: -0.025em;
+
+        @include mappy-bp(lg){
+          @include fluid-type(40px, 48px, 'lg', 'xl');
+          @include fluid-type(48px, 58px, 'lg', 'xl', 'line-height');
+        }
+
+        &:hover {
+          background: black;
+        }
+      }
+
+      @include mappy-bp(xs) {
+        flex-direction: row;
+      }
+    }
+
+
+    .c-masthead__drawer-menu--secondary {
+      border-top: 1px solid white;
+      flex: none;
+      padding: $qnorr-pixel-grid-unit*3;
+      justify-content: center;
+    }
+
+
+
