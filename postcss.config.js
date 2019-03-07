@@ -13,9 +13,20 @@ module.exports = (context => {
     require('autoprefixer'),
     require('postcss-banner')({banner: banner, important: true}),
     require('@fullhuman/postcss-purgecss')({
-      content: ['layouts/**/*.html'],
+      content: ['layouts/**/*.html', 'js/**/*.js'],
       whitelistPatterns: stateClasses,
-      whitelistPatternsChildren: stateClasses
+      whitelistPatternsChildren: stateClasses,
+      // https://gist.github.com/reinink/83058f9af402aa474010844f7f2b1c54
+      extractors: [
+        {
+          extractor: class {
+            static extract(content) {
+              return content.match(/[A-z0-9-@:\/]+/g)
+            }
+          },
+          extensions: ['html', 'js']
+        }
+      ]
     })
   ];
 
