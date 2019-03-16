@@ -4774,8 +4774,7 @@ body {
 
 body {
   font-family: Inter, Helvetica Neue, sans-serif;
-  color: #010101;
-  background: white; }
+  color: #010101; }
   body.no-overflow {
     overflow: hidden; }
 
@@ -4795,17 +4794,15 @@ body {
       padding-right: 0;
       padding-left: 64px; } }
 
-main a {
-  background-color: black;
-  color: white !important; }
+a:not(.c-button) {
+  text-decoration: underline !important; }
 
 strong {
   font-weight: 800; }
 
 * {
   scrollbar-color: black transparent;
-  scrollbar-width: 8px;
-  scrollbar-height: 8px; }
+  scrollbar-width: 8px; }
 
 ::-webkit-scrollbar {
   width: 8px;
