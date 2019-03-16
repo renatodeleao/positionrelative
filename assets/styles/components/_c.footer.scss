@@ -1,22 +1,39 @@
-footer {
-  display: flex;
-  flex-direction: column;
+.c-footer {
+  $col: map-deep-get($posr-color-maps, "grayscale", 900 );
+  // background-color: map-deep-get($posr-color-maps, "grayscale", 900 );
+  // color: white;
+  padding-top: 15vw;
+  border-top: 1px solid $col;
 
-  small {
-    &:last-child { margin-top: $qnorr-pixel-grid-unit*2 }
+  .c-footer__copyrights {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    opacity: 0.6;
+    margin-top: 5vw;
+
+    small {
+      &:last-child { margin-top: $qnorr-pixel-grid-unit*2 }
+    }
+  }
+
+  .c-footer__smallcopy {
+    opacity: 0.5;
   }
 
   @include mappy-bp(sm) {
-    flex-direction: row;
-    justify-content: space-between;
+    padding-top: 5vw;
 
-    small {
-      &:last-child {
-        margin-top: 0;
-        margin-left: $qnorr-pixel-grid-unit*2
+    .c-footer__copyrights {
+      flex-direction: row;
+      justify-content: space-between;
+
+      small {
+        &:last-child {
+          margin-top: 0;
+          margin-left: $qnorr-pixel-grid-unit*2
+        }
       }
     }
   }
-  padding: 16px 0;
-  opacity: 0.6;
 }
