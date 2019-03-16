@@ -1,0 +1,9 @@
+.u-display\:i { display: inline }
+.u-list-unstyle { list-style: none }
+
+
+.u-visibile\@sm {
+  @include mappy-bp(max sm){
+    display: none;
+  }
+}

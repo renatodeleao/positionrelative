@@ -10,20 +10,24 @@
 @include font-face('/fonts/inter/Inter-SemiBold', Inter, 600);
 @include font-face('/fonts/inter/Inter-ExtraBold', Inter, 800);
 
+@include font-face('/fonts/rajdhani/Rajdhani-Regular', Raj, 400);
+// @include font-face('/fonts/rajdhani/Rajdhani-Medium', Raj, 500);
+// @include font-face('/fonts/rajdhani/Rajdhani-SemiBold', Raj, 600);
+@include font-face('/fonts/rajdhani/Rajdhani-Bold', Raj, 700);
+
 :root {
   --vh: 1vh;
 }
 
 body {
   font-family: $posr-primary-font;
-  background: get-color(grayscale, 900, $posr-color-maps);
-  color: white;
-  overflow-x: hidden;
+  color: get-color(grayscale, 900, $posr-color-maps);
 
   &.no-overflow {
     overflow: hidden;
   }
 }
+
 
 // tmp: remove me
 #root {
@@ -52,6 +56,31 @@ body {
   }
 }
 
-a { text-decoration: underline }
-
+a:not(.c-button) { text-decoration: underline !important}
 strong { font-weight: 800 }
+
+
+* {
+  scrollbar-color: black transparent;
+  scrollbar-width: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb-horizontal {
+  background-color:black;
+}
+
+
+[data-hanging-content]:before {
+  content: attr(data-hanging-content);
+  margin-left: -0.52em; // for Inter
+}

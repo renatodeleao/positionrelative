@@ -1,0 +1,105 @@
+////
+/// A layout helper to position blurb components
+/// @group Objects
+/// @author Renato de Leão
+////
+
+.o-scrollable-list {
+  list-style: none;
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: {
+    top: 10vw;
+    bottom: 10vw;
+  }
+
+  @include mappy-bp(sm){
+    min-height: 240px;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+  .o-scrollable-list__entry {
+    max-width: none;
+    flex: none;
+
+    > * { margin-right: 10vw }
+  }
+
+.o-scrollable-list--wrapped {
+  @each $bp, $size in $qnorr-wrapper-sizes-map {
+    $get-gutter: map-get($qnorr-grid-gutter-map, $bp);
+    $gutter: if($get-gutter, $get-gutter, 0px);
+
+    &.o-grid { margin-left: 0 }
+
+    @include mappy-bp($bp) {
+      &:after {
+        content: " ";
+        width: $get-gutter;
+        flex: none;
+      }
+
+      .o-scrollable-list__entry:first-child {
+        margin-left: calc((100vw - #{$size} - #{$gutter/2})/2);
+      }
+
+      .o-scrollable-list__entry:last-child {
+        &:after {
+          content: " ";
+          flex: none;
+          width: $get-gutter;
+        }
+      }
+
+      // when grid, remove negative offset
+      &.o-grid {
+        .o-scrollable-list__entry:first-child{
+          margin-left: calc((100vw - #{$size} - #{$gutter * 2.5})/2);
+        }
+      }
+    }
+  }
+}
+
+.c-box {
+  $bc: get-color(grayscale, 900);
+  border: 2px solid $bc;
+
+  &:not(:first-child){
+    margin-top: -2px;
+  }
+
+  .c-box__content {
+    min-height: 48px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+
+    &:hover {
+      background: $bc;
+      color: white;
+    }
+
+    > div {
+      padding: 1em;
+    }
+  }
+
+  &__summary {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  &__meta {
+    font-family: Raj;
+    text-transform: uppercase;
+    font-size: 0.5em;
+  }
+}

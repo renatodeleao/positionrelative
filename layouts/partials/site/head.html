@@ -11,8 +11,13 @@
 
 <!-- fonts -->
 {{ $fonts := slice "Regular" "SemiBold" "Bold" }}
+{{ $secondary_fonts := slice "Regular" "Bold" }}
 {{ range $weight := $fonts }}
 <link rel="preload" as="font" href="/fonts/inter/Inter-{{ $weight }}.woff2" type="font/woff2" crossorigin="anonymous">
+{{ end }}
+
+{{ range $weight := $secondary_fonts }}
+<link rel="preload" as="font" href="/fonts/rajdhani/Rajdhani-{{ $weight }}.woff2" type="font/woff2" crossorigin="anonymous">
 {{ end }}
 
 <!-- styles -->

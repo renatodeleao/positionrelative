@@ -1,0 +1,116 @@
+////
+/// A blurb is a short promotional piece accompanying a creative work.
+/// @group Components
+/// @author Renato de Leão
+////
+
+
+///
+/// Wrapper element
+/// [1] - reset possible parent white-space declaration
+///
+.c-blurb {
+  position: relative;
+  white-space: normal; // [1]
+  //@include qnorr-grid-gutters;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+  .c-blurb__header {
+    margin-bottom: -24px;
+    z-index: 3;
+    background: white;
+    margin-right: 2em;
+    padding-bottom: 16px;
+
+    @include fluid-type(24px, 32px, 'xxs', 'lg');
+    // doens't allow unitless values [ask for update]
+    @include fluid-type(28px, 36px, 'xxs', 'lg', 'line-height');
+    font-weight: 600;
+    letter-spacing: -0.025em;
+
+  }
+
+  .c-blurb__title {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+
+
+    & + .c-blurb__summary {
+      margin-top: 1em;
+    }
+  }
+
+    .c-blurb__summary {
+      font-size: 0.5em;
+      line-height: 1.25;
+      font-weight: 500;
+      letter-spacing: 0px;
+    }
+
+  .c-blurb__meta {
+    position: relative;
+    font-size: 1.2em;
+    font-family: Raj;
+    display: inline-flex;
+    flex-direction: row;
+    position: absolute;
+    left: 100%;
+    bottom: 0px;
+    background: white;
+    transform-origin: bottom left;
+    transform: rotate(-90deg);
+    font-size: 12px;
+    font-weight: 700;
+    width: 100%
+  }
+
+    .c-blurb__meta-entry {
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+
+      &:before {
+        content: " // ";
+        white-space: nowrap;
+      }
+
+      &:before,
+      span {
+        opacity: 0.6;
+        font-weight: 500;
+      }
+    }
+
+  .c-blurb__media{
+    margin-left: 3em;
+    margin-right: 2em;
+  }
+
+
+// POSTER
+.c-poster {
+  position: relative;
+  height: 400px;
+  background: #f7f7f7;
+}
+
+
+.c-cinemapostertext {
+  @include fluid-type(40px, 72px, 'xxs', 'lg');
+  font-family: $posr-secondary-font;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  transition: font-weight 0.15s ease;
+
+  color: black;
+  -webkit-text-stroke: 1px black;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    -webkit-text-fill-color: black;
+    color: black;
+  }
+}

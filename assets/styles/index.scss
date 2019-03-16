@@ -21,9 +21,21 @@
 // GLOBAL HTML SETS AND RESETS
 @import "global/index";
 
-// UI COMPONENTS
+// SITE OBJECTS
+@import "objects/o.lists";
+
+// SITE COMPONENTS
 @import "components/c.logo";
 @import "components/c.icons";
 @import "components/c.intro";
 @import "components/c.masthead";
 @import "components/c.footer";
+@import "components/c.sections";
+@import "components/c.button";
+
+// UI COMPONENTS
+@import "components/c.blurbs";
+
+
+// UTILITIES
+@import "utilities/index";

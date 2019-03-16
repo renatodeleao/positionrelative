@@ -50,6 +50,8 @@
   color: black;
   z-index: 1000;
   font-size: 12px;
+  border-top: 1px solid;
+
 
   position: fixed;
   top:0;
@@ -80,6 +82,8 @@
         @if $pos == "right" {
           left: auto;
         } @else if $pos == "left" {
+          border-left: 0;
+          border-top: 1px solid currentColor;
           right: auto;
           left: 0;
           transform-origin: bottom left;
