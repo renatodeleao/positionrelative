@@ -1,5 +1,57 @@
 {{ define "main" }}
-  <section class="o-wrapper c-intro" data-flitem="center--">
-    <h1 class="c-intro__body-text">Hello! I’m Renato de Leão, a portuguese <s>cross-media designer</s><sup><small><i>retired</i></small></sup>, front-end developer and partner at Whitesmith, so a poser way of saying I build websites and apps. <strong>position:relative</strong> is like life itself: a non-ending work-in-progress, so you should expect things to change a lot around here in a near future. In the meantime, you can skim through my <s><a>blog</a></s><sup><small><i>soon</i></small></sup> and check if there’s anything worth of your time or take a look at my <a href="{{ .Site.Data.contacts.lab.url }}" target="_blank">lab</a> where my latest experiments live. If you’re pretty sure you don’t have a four years old cousin who can do it better, <a href="mailto:renatodeleao@gmail.com" target="_blank">say something</a>.</h1>
+  <section class="o-wrapper c-intro">
+    <div data-flitem="center--">
+      <h1 class="c-intro__body-text u-display:i">Hello! I’m Renato de Leão.<br class="u-visibile@sm" /> a portuguese web designer, front-end developer and partner at <a href="https://whitesmith.co" target="_blank">Whitesmith</a>.</h1><br/>
+      <p class="c-intro__body-text u-display:i">I should probably write something with a lot of adjectives and buzzwords to make this sound important and SEO friendly, but I do that every other day.</p>
+    </div>
   </section>
+
+  <section id="recent-posts" class="c-section u-mb-0">
+    <h2 class="c-section__title o-wrapper">Latest from "the lab"</h2>
+    <ul class="o-scrollable-list o-scrollable-list--wrapped o-grid">
+      {{ range  slice "Renderless Vue Select" "A11y-vue-dialog" "skeletonize.js" "vue-sticky-directive" "qnorr-styles" }}
+      <li class="o-scrollable-list__entry o-grid__column">
+        <article class="c-cinemapostertext">{{.}}</article>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+
+  {{/*  <section id="recent-posts" class="o-wrapper c-section">
+    <h2 class="c-section__title">Latest from code lab</h2>
+
+    <ul class="u-list-unstyle">
+      {{ range  slice "Renderless Vue Select" "A11y-vue-dialog" "skeletonize.js" "vue-sticky-directive" "qnorr-styles" }}
+      <li class="o-list__el c-box">
+        <article class="c-box__content" data-flout="justify-between--">
+          <div class="c-box__title">{{.}}</div>
+          <div class="c-box__summary">All the functionally for an accessible selectbox, zero f*cks about your markup.</div>
+          <div class="c-box__meta">javascript</div>
+        </article>
+      </li>
+      {{ end }}
+    </ul>
+  </section>  */}}
+
+  {{/*  <section id="recent-posts" class="o-wrapper c-section">
+    <h2 class="c-section__title">Recent posts</h2>
+
+    <ul class="o-grid">
+      {{ range  slice "Hellow World" "How to be a web designer and loose your soul" "Hugo with Parcel" }}
+      <li class="o-grid__column u-9/12 u-colspan-6/@s u-colspan-4@mdl">
+        <article class="c-blurb">
+          <header class="c-blurb__header">
+            <h1 class="c-blurb__title">{{.}}</h1>
+            <p class="c-blurb__summary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi harum nemo modi quo autem impedit ratione natus eum sapiente recusandae.</p>
+          </header>
+          <div class="c-blurb__meta">
+            <time class="c-blurb__meta-entry"><span>@date</span> 24th nov 2018 </time>
+            <span class="c-blurb__meta-entry"><span>@readingTime</span> 1min</span>
+          </div>
+          <img src="/images/test-header.jpg" class="c-blurb__media">
+        </article>
+      </li>
+      {{ end }}
+    </ul>
+  </section>  */}}
 {{ end }}

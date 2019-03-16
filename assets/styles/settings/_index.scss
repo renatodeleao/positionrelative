@@ -5,12 +5,13 @@
 ////
 
 $posr-primary-font: Inter, Helvetica Neue, sans-serif;
+$posr-secondary-font: Raj, #{$posr-primary-font};
 
 $posr-color-maps: (
   grayscale: (
     100: #f1f0f1,
     700: #101010,
-    900: #050505
+    900: #010101
   )
 );
 

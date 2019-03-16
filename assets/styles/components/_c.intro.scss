@@ -4,20 +4,34 @@
 ///
 .c-intro {
   position: relative;
-  flex: 1 0 auto;
+  //flex: 1 0 auto;
   display: flex;
   align-items: center;
+  padding: {
+    top: 5vw;
+    bottom: 5vw;
+  }
+
+  margin-bottom: 60px;
+
+  @include mappy-bp(sm){
+    margin-bottom: 5vw;
+  }
 }
 
   .c-intro__body-text{
-    @include fluid-type(24px, 40px, 'xxs', 'lg');
+    @include fluid-type(28px, 40px, 'xxs', 'lg');
     // doens't allow unitless values [ask for update]
     @include fluid-type(36px, 48px, 'xxs', 'lg', 'line-height');
     font-weight: 600;
     letter-spacing: -0.025em;
 
+    sup {
+      margin-left: 0.1em;
+    }
+
     @include mappy-bp(lg){
-      @include fluid-type(40px, 48px, 'lg', 'xl');
-      @include fluid-type(48px, 58px, 'lg', 'xl', 'line-height');
+      @include fluid-type(60px, 68px, 'lg', 'xl');
+      @include fluid-type(64px, 72px, 'lg', 'xl', 'line-height');
     }
   }
