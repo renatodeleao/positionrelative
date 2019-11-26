@@ -1,0 +1,17 @@
+[build]
+  publish = "public"
+  command = "yarn run build"
+
+[context.production.environment]
+  HUGO_VERSION = "0.59.1"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+
+[context.branch-deploy.environment]
+  HUGO_VERSION = "0.59.1"
+
+# preview also get drafts and future posts so we can test
+# unpublished content
+[context.deploy-preview.environment]
+  HUGO_VERSION = "0.59.1"
+  command = "yarn run build:preview"

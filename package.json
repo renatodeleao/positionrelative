@@ -16,7 +16,9 @@
     "start:parcel": "rm -rf assets/js && parcel watch js/index.js -d assets/js",
     "build:parcel": "rm -rf assets/js && parcel build js/index.js -d assets/js",
     "build:hugo": "HUGO_ENV='production' hugo --gc --minify",
+    "build:hugo-preview": "HUGO_ENV='production' hugo --gc --minify --buildDrafts --buildFuture",
     "build": "rm -rf public/** && run-s build:parcel build:hugo",
+    "build:preview": "rm -rf public/** && run-s build:parcel build:hugo-preview",
     "preflight:serve": "HUGO_ENV='production' hugo server --environment=production --bind=0.0.0.0 --baseURL=http://0.0.0.0:1313",
     "preflight": "run-s build preflight:serve"
   },
