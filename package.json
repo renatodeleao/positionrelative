@@ -20,7 +20,8 @@
     "build": "rm -rf public/** && run-s build:parcel build:hugo",
     "build:preview": "rm -rf public/** && run-s build:parcel build:hugo-preview",
     "preflight:serve": "HUGO_ENV='production' hugo server --environment=production --bind=0.0.0.0 --baseURL=http://0.0.0.0:1313",
-    "preflight": "run-s build preflight:serve"
+    "preflight": "run-s build preflight:serve",
+    "dev": "( sleep 1.5 && yarn run start:hugo ) & yarn run start:parcel"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
