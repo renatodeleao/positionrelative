@@ -812,7 +812,7 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
-"@whitesmith/qnorr-styles@^0.3.1":
+"@whitesmith/qnorr-styles@^0.3.5":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@whitesmith/qnorr-styles/-/qnorr-styles-0.3.5.tgz#8ce06377eff947956228f8f385f66e3a69884cbf"
   integrity sha512-kIpobacBO/rINB2VMQ7GHRM00RcaDttkuMwiFamLcCprrLTAv4duAOp1ockBnBsvsY1qh4uGB0kj5i3LKGNc8w==
