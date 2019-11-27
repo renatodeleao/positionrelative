@@ -10,7 +10,7 @@ export class Masthead {
     drawerOpenClassname: "is-open"
   }
 
-	constructor() {
+  constructor() {
     // we should use some webcomponents library/stimulus.js
     // Something that makes this more readable and without
     // So much parsing boilerplate code.
