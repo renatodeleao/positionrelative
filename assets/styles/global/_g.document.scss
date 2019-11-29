@@ -29,6 +29,12 @@ body {
 }
 
 
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: $posr-primary-font;
+  }
+}
+
 // tmp: remove me
 #root {
   min-height: 100vh;

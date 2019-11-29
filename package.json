@@ -12,7 +12,7 @@
   },
   "homepage": "https://github.com/renatodeleao/positionrelative",
   "scripts": {
-    "start:hugo": "hugo server --buildDrafts --buildFuture --gc --bind=0.0.0.0 --baseURL=http://0.0.0.0:1313",
+    "start:hugo": "hugo server --buildDrafts --buildFuture --gc --disableFastRender --bind=0.0.0.0 --baseURL=http://0.0.0.0:1313",
     "start:parcel": "rm -rf assets/js && parcel watch js/index.js -d assets/js",
     "build:parcel": "rm -rf assets/js && parcel build js/index.js -d assets/js",
     "build:hugo": "HUGO_ENV='production' hugo --gc --minify",
@@ -21,7 +21,7 @@
     "build:preview": "rm -rf public/** && run-s build:parcel build:hugo-preview",
     "preflight:serve": "HUGO_ENV='production' hugo server --environment=production --bind=0.0.0.0 --baseURL=http://0.0.0.0:1313",
     "preflight": "run-s build preflight:serve",
-    "dev": "( sleep 1.5 && yarn run start:hugo ) & yarn run start:parcel"
+    "dev": "( sleep 3 && yarn run start:hugo ) & yarn run start:parcel"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

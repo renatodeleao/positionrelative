@@ -2,6 +2,6 @@
   {{ .Title}}
   {{ .Content }}
   {{ range .Pages }}
-    <a href="{{ .URL}}">{{ .Title}}</a>
+    <a href="{{ .Permalink }}">{{ .Title}}</a>
   {{ end }}
 {{ end }}

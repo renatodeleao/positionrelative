@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <header class="c-hero c-hero--blog">
+    <div class="o-wrapper">
+      <h1 class="c-hero__heading">{{.Title}}</h1>
+      <p class="c-hero__excerpt">{{ .Params.Excerpt }}</p>
+      <time>{{ .Date }}</time>
+    </div>
+  </header>
+
+  <section class="s-blog-post">
+    <div class="o-wrapper">
+      {{ .Content }}
+    </div>
+  </section>
+{{ end }}

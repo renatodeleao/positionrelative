@@ -1,0 +1,31 @@
+///
+/// Hero
+///
+/// @example markup — Hero
+///   <div class="c-hero">
+///     <div class="c-hero__wrapper"></div>
+///   </div>
+///
+
+.c-hero,
+.c-hero__wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.c-hero--blog {
+  background: black;
+  color: white;
+  padding: 5vw 0;
+  margin-bottom: 30px;
+
+  .c-hero__heading {
+    font-size: 2.48832rem;
+    line-height: 1.2;
+    letter-spacing: -.035em;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+}

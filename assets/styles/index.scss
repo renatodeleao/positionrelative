@@ -15,6 +15,14 @@
 // SETTINGS
 @import "settings/index";
 
+@import "vendor/syntax";
+.chroma {
+  padding: 20px;
+  tab-size: 2;
+
+  /* white-space: pre-wrap; */
+  overflow: auto;
+}
 // QNORR [replace per modules after dev]
 @import "@whitesmith/qnorr-styles/scss/qnorr.scss";
 
@@ -35,7 +43,11 @@
 
 // UI COMPONENTS
 @import "components/c.blurbs";
+@import "components/c.hero";
 
+
+// UTILITIES
+@import "scopes/s.blog";
 
 // UTILITIES
 @import "utilities/index";

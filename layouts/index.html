@@ -1,13 +1,53 @@
 {{ define "main" }}
   <section class="o-wrapper c-intro">
-    <div data-flitem="center--">
-      <h1 class="c-intro__body-text u-display:i">Hello! I’m Renato de Leão.<br class="u-visibile@sm" /> a portuguese web designer, front-end developer and partner at <a href="https://whitesmith.co" target="_blank">Whitesmith</a>.</h1><br/>
-      <p class="c-intro__body-text u-display:i">I should probably write something with a lot of adjectives and buzzwords to make this sound important and SEO friendly, but I do that every other day.</p>
+    <div data-flitem="center--" class="u-8/12">
+      <h1 class="c-intro__heading u-display:i">old web with new perspectives</h1>
+      <p class="c-intro__body-text">Hello i've making websites and apps for the last 6 years and don't pretent to stop that soon.
+      I should probably write something with a lot of adjectives and buzzwords to make this sound important and SEO friendly, but I do that every other day.</p>
+    </div>
+  </section>
+
+
+  <section id="recent-posts" class="c-section u-pv-12x">
+    <div class="o-wrapper">
+      <h2 class="c-section__title">Latest work</h2>
+      <ul class="o-grid o-grid--staggered">
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+        <li class="o-grid__column u-6/12@sm u-4/12@lg" data-flout>
+          <img src="https://source.unsplash.com/1600x900/?nature,water" />
+        </li>
+      </ul>
     </div>
   </section>
 
   <section id="recent-posts" class="c-section u-mb-0">
-    <h2 class="c-section__title o-wrapper">Latest from "the lab"</h2>
+    <h2 class="c-section__title o-wrapper">Latest from the code lab</h2>
     <ul class="o-scrollable-list o-scrollable-list--wrapped o-grid">
       {{ range  slice "Renderless Vue Select" "A11y-vue-dialog" "skeletonize.js" "vue-sticky-directive" "qnorr-styles" }}
       <li class="o-scrollable-list__entry o-grid__column">
@@ -15,6 +55,21 @@
       </li>
       {{ end }}
     </ul>
+  </section>
+
+
+  <section id="recent-posts" class="c-section u-pv-12x">
+    <div class="o-wrapper">
+      <h2 class="c-section__title">Latest thoughts from the Blog</h2>
+      <ul class="o-grid">
+        {{ range where .Site.RegularPages "Section" "blog"  }}
+          <li class="o-grid__column u-4/12@sm">
+          {{ .Render "card" }}
+          </li>
+        {{ end }}
+
+      </ul>
+    </div>
   </section>
 
   {{/*  <section id="recent-posts" class="o-wrapper c-section">

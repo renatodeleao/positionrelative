@@ -1,7 +1,7 @@
 .c-footer {
   $col: map-deep-get($posr-color-maps, "grayscale", 900 );
-  // background-color: map-deep-get($posr-color-maps, "grayscale", 900 );
-  // color: white;
+  background-color: map-deep-get($posr-color-maps, "grayscale", 900 );
+  color: white;
   padding-top: 15vw;
   border-top: 1px solid $col;
 

@@ -19,10 +19,10 @@
   }
 }
 
-  .c-intro__body-text{
+  .c-intro__heading {
     @include fluid-type(28px, 40px, 'xxs', 'lg');
     // doens't allow unitless values [ask for update]
-    @include fluid-type(36px, 48px, 'xxs', 'lg', 'line-height');
+    @include fluid-type(32px, 40px, 'xxs', 'lg', 'line-height');
     font-weight: 600;
     letter-spacing: -0.025em;
 
@@ -31,7 +31,8 @@
     }
 
     @include mappy-bp(lg){
-      @include fluid-type(60px, 68px, 'lg', 'xl');
+      @include fluid-type(32px, 48px, 'lg', 'xl');
       @include fluid-type(64px, 72px, 'lg', 'xl', 'line-height');
     }
   }
+

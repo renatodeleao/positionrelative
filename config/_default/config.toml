@@ -11,15 +11,15 @@ enableGitInfo = true
     url = "/about/"
     weight = -1
 
-	[[menu.masthead]]
+  [[menu.masthead]]
     identifier = "blog"
     name = "Blog"
     title = "Articles and opinions"
     url = "/blog/"
-		wip = true
+    wip = true
     weight = -1
 
-	[[menu.masthead]]
+  [[menu.masthead]]
     identifier = "lab"
     name = "Lab"
     title = "Latest code experiements"
@@ -29,15 +29,15 @@ enableGitInfo = true
 
 
 
-	## Secondary links
-	[[menu.mastheadsecondary]]
+  ## Secondary links
+  [[menu.mastheadsecondary]]
     identifier = "github"
     name = "GH"
     title = "Github page"
     url = "https://github.com/renatodeleao"
     #weight = -110
 
-	[[menu.mastheadsecondary]]
+  [[menu.mastheadsecondary]]
     identifier = "twitter"
     name = "Tw"
     title = "Twitter page"
@@ -45,7 +45,30 @@ enableGitInfo = true
     #weight = -110
 
 
-
-
 [params]
   description = "The digital home of Renato de Leão, digital designer and front-end developer"
+
+[languages]
+[languages.en]
+  languageName = "EN"
+  languageCode = "en-GB"
+  weight = 1
+[languages.pt]
+  languageName = "PT"
+  languageCode = "pt-pt"
+  weight = 2
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    style = "github"
+    tabWidth = 2
+
+	[markup.goldmark.renderer]
+		unsafe = true
+

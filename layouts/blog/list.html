@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <div class="o-wrapper">
+    <h1>{{ .Title}}</h1>
+  {{/* Accessing page metadata with Params */}}
+  <p>{{ .Params.Intro }}</p>
+    custom list
+    <section>
+    {{ .Content }}
+
+    {{ range .Pages }}
+      <a href="{{ .Permalink }}">{{ .Title}}</a>
+    {{ end }}
+    </section>
+  </div>
+{{ end }}

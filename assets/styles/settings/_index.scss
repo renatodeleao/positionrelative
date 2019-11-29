@@ -44,3 +44,10 @@ $posr-masthead-setup-map: (
 /// @whitesmith/qnorr-styles overrides
 $qnorr-font-family: $posr-primary-font;
 
+$qnorr-grid-gutter-map: (
+  null: 8px*2,
+  xs:  8px*2,
+  sm: 8px*3,
+  lg: 8px*4
+);
+

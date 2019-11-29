@@ -1,0 +1,53 @@
+.s-blog-post {
+  padding: 1rem 0 3rem 0;
+
+  h1, h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 2.5em;
+
+    small {
+      opacity: 0.6;
+    }
+  }
+
+  h1, h2 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  // avoids double margin with headings´
+  p {
+    margin-bottom: 1em;
+  }
+
+  p + p {
+    margin-top: 1em;
+  }
+
+
+  //-/////////////////////////////////////////////////
+  // header
+  //-/////////////////////////////////////////////////
+
+  @include mappy-bp(xl) {
+    p {
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    pre, {
+      font-size: 14px;
+      font-family: menlo, monospace;
+      margin-bottom: 1em;
+    }
+
+    .highlight + p,
+    pre + p {
+      margin-top: 2em;
+    }
+  }
+}
