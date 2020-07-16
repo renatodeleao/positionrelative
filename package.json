@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@whitesmith/qnorr-styles": "^0.3.5",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "utils": "^0.3.1"
   }
 }
