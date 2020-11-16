@@ -18,7 +18,7 @@ trim_trailing_whitespace = false
 [*.{js,py,sass,scss,css}]
 charset = utf-8
 
-[*.{scss,css,sass,html,hbs,erb,haml,js,json,jsonc,yml,yaml}]
+[*.{scss,css,sass,html,hbs,erb,haml,js,json,jsonc,yml,yaml,vue}]
 indent_style = space
 indent_size = 2
 

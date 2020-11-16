@@ -1,13 +1,3 @@
-# Hugo build folder
-public/
-resources/
-
-# Generated files used by hugo resources.Get
-assets/js/
-
-# TMP: add me after https://github.com/netlify/build-image/issues/254
-# resources/
-
 # npm
 node_modules/
 yarn-error.log
@@ -15,3 +5,7 @@ yarn-error.log
 
 # apple files
 .DS_Store
+
+# Nuxt
+.nuxt/
+dist/
