@@ -12,7 +12,9 @@
     </main>
 
     <div class="o-skeleton__tip">
-      {{- partial "site/footer.html" . -}}
+      {{- block "footer" . }}
+        {{- partial "site/footer.html" . -}}
+      {{- end }}
     </div>
   </div>
 
